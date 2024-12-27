@@ -1,0 +1,14 @@
+[Unit]
+Description=FinanceAI FastAPI Application
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/FinanceAI
+Environment="PATH=/home/ubuntu/miniconda3/bin"
+EnvironmentFile=/home/ubuntu/FinanceAI/.env
+ExecStart=/home/ubuntu/miniconda3/bin/uvicorn app:app --host 0.0.0.0 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
